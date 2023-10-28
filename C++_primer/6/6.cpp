@@ -3,11 +3,15 @@
 #include <vector>
 
 using namespace std;
+int fact(int a){
+    if(a==0 || a==1){
+        return 1;
+    }else{
+        return a*fact(a - 1);
+    }
+}
 int main() {
-    int i, j;
-    cin>> i>> j;
 
-
-
+    cout << abs(-1.4)<<endl;
 
 }
