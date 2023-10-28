@@ -4,14 +4,13 @@
 using namespace std;
 
 int main(){
-    vector<int> v ;
-    for(int i ; i <100; i++){
-        v.push_back(i);
+    vector<int> v(10,1);
+    for (auto i = v.begin(); i != v.end(); i++)
+    {
+        *i +=6;
     }
-    for(auto &i : v){
-        i *= i; 
-    }
-    for(auto i : v){
-        cout << i<<endl; 
+    
+    for(auto a :v){
+        cout << a <<endl;
     }
 }
