@@ -3,15 +3,23 @@
 #include <vector>
 
 using namespace std;
-int fact(int a){
-    if(a==0 || a==1){
-        return 1;
-    }else{
-        return a*fact(a - 1);
-    }
-}
-int main() {
 
-    cout << abs(-1.4)<<endl;
+int fun(int a ,int b);
+vector<decltype(fun)*> v;
+
+int add(int a, int b) { return a + b; }
+int subtract(int a, int b) { return a - b; }
+int multiply(int a, int b) { return a * b; }
+int divide(int a, int b) { return b != 0 ? a / b : 0; }
+
+int main(int argc, char **argv)
+{
+    v.push_back(add);
+    v.push_back(subtract);
+    v.push_back(multiply);
+    v.push_back(divide);
+    for(auto a : v){
+        cout << a(2,2) <<endl;
+    }
 
 }
