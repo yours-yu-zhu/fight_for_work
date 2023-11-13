@@ -51,6 +51,5 @@ int main()
     std::cout << "\n";
     myScreen.display(std::cout);
     std::cout << "\n";
-
     return 0;
 }
