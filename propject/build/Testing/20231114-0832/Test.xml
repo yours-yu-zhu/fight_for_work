@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-aarch64-linux-gnu-g++"
+	BuildStamp="20231114-0832-Experimental"
+	Name="instance-20231114-1047"
+	Generator="ctest-3.28.0-rc4"
+	CompilerName="/usr/bin/aarch64-linux-gnu-g++"
+	CompilerVersion="9.4.0"
+	OSName="Linux"
+	Hostname="instance-20231114-1047"
+	OSRelease="5.15.0-1042-oracle"
+	OSVersion="#48~20.04.1-Ubuntu SMP Mon Aug 21 18:29:44 UTC 2023"
+	OSPlatform="aarch64"
+	Is64Bits="1"
+	VendorString=""
+	VendorID="Unknown Manufacturer"
+	FamilyID="8"
+	ModelID="0"
+	ProcessorCacheSize="0"
+	NumberOfLogicalCPU="4"
+	NumberOfPhysicalCPU="1"
+	TotalVirtualMemory="0"
+	TotalPhysicalMemory="23987"
+	LogicalProcessorsPerPhysical="4"
+	ProcessorClockFrequency="0"
+	>
+	<Testing>
+		<StartDateTime>Nov 14 16:32 CST</StartDateTime>
+		<StartTestTime>1699950764</StartTestTime>
+		<TestList/>
+		<EndDateTime>Nov 14 16:32 CST</EndDateTime>
+		<EndTestTime>1699950764</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
