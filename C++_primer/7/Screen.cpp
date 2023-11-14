@@ -1,10 +1,22 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
+class Screen;
+class Window_mgr{
+    public:
+        typedef vector<Screen>::size_type ScreenIndex;
+        void clear(ScreenIndex i);
+
+    private:
+        vector<Screen> screens;
+};
+
 class Screen {
     public:
+        friend void Window_mgr::clear(ScreenIndex i);
         using pos = std::string::size_type;
         inline Screen& move(pos r, pos c);
         inline Screen& set(char c);
@@ -26,6 +38,12 @@ class Screen {
         void do_display(std::ostream &os) const { os << contents; }
 };
 
+
+void Window_mgr::clear(ScreenIndex i){
+    Screen& s = screens[i];
+    s.contents = string(s.width*s.height,' ');
+}
+
 inline Screen& Screen::move(pos r, pos c)
 {
     cursor = r*width + c;
@@ -46,10 +64,10 @@ inline Screen& Screen::set(pos r, pos c, char ch)
 
 int main()
 {
-    Screen myScreen(5, 5, 'X');
-    myScreen.move(4, 0).set('#').display(std::cout);
-    std::cout << "\n";
-    myScreen.display(std::cout);
-    std::cout << "\n";
-    return 0;
+    // Screen myScreen(5, 5, 'X');
+    // myScreen.move(4, 0).set('#').display(std::cout);
+    // std::cout << "\n";
+    // myScreen.display(std::cout);
+    // std::cout << "\n";
+    // return 0;
 }
