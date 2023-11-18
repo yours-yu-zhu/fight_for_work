@@ -16,17 +16,22 @@ class Window_mgr{
 
 class Screen {
     public:
+        //声明
         friend void Window_mgr::clear(ScreenIndex i);
         using pos = std::string::size_type;
         inline Screen& move(pos r, pos c);
         inline Screen& set(char c);
         inline Screen& set(pos r, pos c, char ch);
-
+        //定义
         const Screen& display(std::ostream &os) const { do_display(os); return *this; }
         Screen& display(std::ostream &os) { do_display(os); return *this; }
         Screen() = default; // 1
         Screen(pos ht, pos wd):height(ht), width(wd), contents(ht*wd, ' '){ } // 2
         Screen(pos ht, pos wd, char c):height(ht), width(wd), contents(ht*wd, c){ } // 3
+        pos size() const
+        {
+            return height * width;
+        }
 
         char get() const { return contents[cursor]; }
         char get(pos r, pos c) const { return contents[r*width+c]; }
