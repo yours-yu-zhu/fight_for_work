@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -17,6 +19,7 @@ istream& func(istream& in){
 
 int main(int argc, char **argv)
 {
-   istream& a = func(cin);
+   istringstream iss("dasdacsaadsada sds sdsas sax");
+   istream& a = func(iss);
    cout<<a.rdstate()<<endl;
 }
