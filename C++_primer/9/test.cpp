@@ -19,8 +19,12 @@ void find(list<int>::iterator begin,list<int>::iterator end,int a){
 
 }
     
-int main(int argc, char **argv)
-{
-    list<int> myVector = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    find(myVector.begin(),myVector.end(),8);
+int main(int argc, char **argv){
+    // list<int> myVector = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    // find(myVector.begin(),myVector.end(),8);
+    vector<int> data ;
+    for(int i = 0; i < 100; ++i){
+        data.push_back(i);
+        cout<< "capacity: " << data.capacity() <<"\tsize: "<< data.size() << endl;
+    }
 }
