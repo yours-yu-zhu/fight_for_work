@@ -1,0 +1,10 @@
+12_1.cpp:10:7: note: ‘class StrBlob’ defined here
+   10 | class StrBlob{
+      |       ^~~~~~~
+12_1.cpp:215:12: error: no declaration matches ‘StrBlobPtr StrBlob::end()’
+  215 | StrBlobPtr StrBlob::end(){
+      |            ^~~~~~~
+12_1.cpp:215:12: note: no functions named ‘StrBlobPtr StrBlob::end()’
+12_1.cpp:10:7: note: ‘class StrBlob’ defined here
+   10 | class StrBlob{
+      |  
