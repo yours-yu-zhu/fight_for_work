@@ -14,6 +14,8 @@ public:
     String(const String&);
     String& operator=(const String&);
     ~String();
+    String(String&&) noexcept; // 移动构造函数
+    String &operator=(String&&) noexcept; // 移动赋值运算符
 
     const char *c_str() const { return elements; }  // 返回字符串首地址
     size_t size() const { return end - elements; } // 实际空间大小，包括一个结尾字符
@@ -52,6 +54,23 @@ String::String(const String& rhs){
     range_initializer(rhs.elements, rhs.end);
     std::cout << "copy constructor" << std::endl;
 }
+
+String::String(String&& s) noexcept: elements(s.elements), end(s.end){
+    s.elements = s.end = nullptr;
+    std::cout << "move constructor" << std::endl;
+}
+
+String& String::operator=(String&& rhs) noexcept{
+    if(this != &rhs){
+        free();
+        elements = rhs.elements;
+        end = rhs.end;
+        rhs.elements = rhs.end = nullptr;
+        cout << "move assignment" << endl;
+    }
+    return *this;
+}
+
 
 void String::free(){
     if(elements){
@@ -107,8 +126,9 @@ int main()
     bar(s1);
     foo("temporary");
     bar("temporary");
-    String s5 = baz();
+    String s5 = baz(); //调用移动构造函数，打印move constructor
 
+    cout << "______"    << endl;
     std::vector<String> svec;
     svec.reserve(8);
     svec.push_back(s0); //''

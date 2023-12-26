@@ -17,7 +17,8 @@ public:
     StrVec(initializer_list<string>);
     StrVec& operator=(const StrVec&); //拷贝赋值运算符
     ~StrVec(); //析构函数
-    void push_back(const string&); //添加元素
+    void push_back(const string&); //添加元素,左值版本
+    void push_back(string&&); //添加元素，右值版本
     //size()返回当前真正在使用的元素数量
     size_t size() const{
         return first_free - elements; 

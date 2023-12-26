@@ -10,6 +10,12 @@ using namespace std;
 void StrVec::push_back(const string& s){
     chk_n_alloc();//确保有空间
     alloc.construct(first_free++, s);//在first_free指向的元素中构造s的副本
+    cout << "添加元素,左值版本" << endl;
+}
+void StrVec::push_back(string&& s){
+    chk_n_alloc();
+    alloc.construct(first_free++,std::move(s));
+    cout << "添加元素,右值版本" << endl;
 }
 
 pair<string*, string*> StrVec::alloc_n_copy(const string* a, const string* b){
@@ -106,7 +112,10 @@ StrVec::StrVec(initializer_list<string> il){
 }    
 
 int main() {
-
+    StrVec vec;
+    string s = "some string or another";
+    vec.push_back(s); //左值版本
+    vec.push_back("done"); //右值版本
     
 }
 
