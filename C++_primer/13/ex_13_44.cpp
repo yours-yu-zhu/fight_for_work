@@ -110,9 +110,7 @@ String baz()
     return ret;
 }
 
-
-int main()
-{
+void ex13_44(){
     char text[] = "world";
 
     String s0; // 调用默认构造函数,在调用String("")构造函数，没有打印东西
@@ -143,4 +141,9 @@ int main()
     for (const auto &s : svec) {
         std::cout << s.c_str() << std::endl;
     }
+}
+
+int main()
+{
+
 }

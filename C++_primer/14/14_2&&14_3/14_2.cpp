@@ -84,12 +84,75 @@ ostream& operator<<(ostream& os, const String& s){
     return os;
 }
 
+bool operator==(const String& lhs, const String& rhs){
+    cout << "operator==" << endl;
+    if(lhs.size() != rhs.size()){
+        return false;
+    }
+    for(auto p = lhs.elements, q = rhs.elements;
+        p != lhs.end && q != rhs.end;
+        ++p, ++q){
+            if(*p != *q){
+                return false;
+            }
+        }
+    return true;
+}
+
+bool operator!=(const String& lhs, const String& rhs){
+    cout << "operator!=" << endl;
+    return !(lhs == rhs);
+}
+
+bool operator<(const String &s1, const String &s2){
+    cout << "operator<" << endl;
+    return lexicographical_compare(s1.elements, s1.end,
+            s2.elements, s2.end);
+}
+
+bool operator>(const String &s1, const String &s2){
+    cout << "operator>" << endl;
+    return s2 < s1;
+}
+
+bool operator<=(const String &s1, const String &s2){
+    cout << "operator<=" << endl;
+    return !(s2 < s1);
+}
+
+bool operator>=(const String &s1, const String &s2){
+    cout << "operator>=" << endl;
+    return !(s1 < s2);
+}
+
 void ex_14_7(){
     String str("Hello World");
 	cout << str << endl;
 }
 
+void ex_14_16(){
+    String str1("Hello World");
+    String str2("Hello World");
+    cout << (str1 == str2) << endl;
+    cout << (str1 != str2) << endl;
+}
+
+void ex_14_19(){
+    String s1("One"), s2("Oneone");
+    String s3(s2);
+    if (s1 < s2)
+        cout << "s1 < s2" << endl;
+    else
+        cout << "s1 >= s2 " << endl;
+    if (s3 >= s2)
+        cout << "s3 >= s2" << endl;
+    else
+        cout << "s3 < s2 " << endl;
+}
+
 int main()
 {
-    ex_14_7();
+    // ex_14_7();
+    // ex_14_16();
+    ex_14_19();
 }

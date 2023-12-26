@@ -10,6 +10,8 @@
 using namespace std;
 
 class StrVec{
+    friend bool operator==(const StrVec&, const StrVec&); 
+    friend bool operator!=(const StrVec&, const StrVec&);   
 public:
     //默认构造函数，全为空
     StrVec():elements(nullptr), first_free(nullptr), cap(nullptr){}

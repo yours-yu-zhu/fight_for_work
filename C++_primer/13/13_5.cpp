@@ -109,39 +109,44 @@ StrVec::StrVec(initializer_list<string> il){
     auto newdata = alloc_n_copy(il.begin(), il.end());
     elements = newdata.first;
     first_free = cap = newdata.second;
-}    
+} 
+
+//14.16
+bool operator==(const StrVec& rhs, const StrVec& lhs){
+    cout << "operator==" << endl;
+    if(rhs.size() != lhs.size()){
+        return false;
+    }
+    for(auto p = rhs.begin(), q = lhs.begin();
+        p != rhs.end() && q != lhs.end();
+        ++p, ++q){
+            if(*p != *q){
+                return false;
+            }
+        }
+    return true;
+}
+
+bool operator!=(const StrVec& rhs, const StrVec& lhs){
+    cout << "operator!=" << endl;
+    return !(rhs == lhs);
+}
+
+void ex14_16(){
+    StrVec vec_list{"c++", "primer", "5th"};
+    const StrVec con_vec_list{"c++", "primer", "5th"};
+    if (vec_list == con_vec_list)
+        for (const auto &str : con_vec_list)
+            std::cout << str << " ";
+    std::cout << std::endl;
+}
+
 
 int main() {
     StrVec vec;
     string s = "some string or another";
     vec.push_back(s); //左值版本
     vec.push_back("done"); //右值版本
-    
+    ex14_16();
 }
 
-/*
-copy constructor
-copy constructor
-copy-assignment
-copy constructor
-hello
-hello
-temporary
-temporary
-copy constructor
-copy constructor
-copy constructor
-copy constructor
-copy constructor
-copy constructor
-copy constructor
-copy constructor
-
-hello
-hello
-hello
-world
-world
-world
-good job
-*/

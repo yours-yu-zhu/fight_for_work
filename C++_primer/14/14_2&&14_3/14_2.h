@@ -8,7 +8,14 @@
 using namespace std;
 class String
 {
-
+    //ex14.16
+    friend bool operator==(const String&, const String&);
+    friend bool operator!=(const String&, const String&);
+    //ex14.19 
+    friend bool operator<(const String &s1, const String &s2);
+    friend bool operator<=(const String &s1, const String &s2);
+    friend bool operator>(const String &s1, const String &s2);
+    friend bool operator>=(const String &s1, const String &s2);
 public:
     String() : String("") { }
     String(const char *);

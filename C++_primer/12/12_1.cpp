@@ -10,6 +10,8 @@ using namespace std;
 class StrBlobPtr;
 //12.2 
 class StrBlob{
+    friend bool operator==(const StrBlob&, const StrBlob&); 
+    friend bool operator!=(const StrBlob&, const StrBlob&);
 public:
     using size_type = vector<string>::size_type;
     friend class StrBlobPtr;
@@ -57,6 +59,15 @@ private:
         }
     }
 };
+
+//14.16
+bool operator==(const StrBlob &lhs, const StrBlob &rhs){
+    return lhs.data == rhs.data;
+}
+
+bool operator!=(const StrBlob &lhs, const StrBlob &rhs){
+    return !(lhs == rhs);
+}
 
 void ex_12_2(){
     const StrBlob csb{"hello","world","pezy"};
