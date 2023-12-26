@@ -34,10 +34,6 @@ Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs){
     return sum; 
 }
 
-
-
-
-
 int main() {
 
 }
