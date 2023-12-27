@@ -34,6 +34,30 @@ Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs){
     return sum; 
 }
 
-int main() {
+Sales_data& Sales_data::operator=(const string &s){
+    bookNo = s;
+    return *this;
+}
 
+void ex_14_20(){
+    Sales_data b1("978-7-121-15535-2", 1, 97.9);
+    Sales_data b2("978-7-121-15535-2", 1, 99.9);
+
+    std::cout << b1 + b2 << std::endl;
+    b1 += b2;
+    std::cout << b1 << std::endl;
+    std::cout << b1 + b2 << std::endl;
+}
+
+void ex_14_22(){
+    std::string s = "C++ Primer 5th";
+    Sales_data b1("c++ primer", 10, 97.9);
+
+    b1 = s;             // b1.operator=(s);
+    std::cout << b1 << std::endl;
+}
+
+int main() {
+    // ex_14_20();
+    ex_14_22();
 }
