@@ -148,6 +148,7 @@ void ex_14_19(){
         cout << "s3 >= s2" << endl;
     else
         cout << "s3 < s2 " << endl;
+    cout << s2[3] << endl;
 }
 
 int main()

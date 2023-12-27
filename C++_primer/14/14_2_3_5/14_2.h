@@ -28,7 +28,9 @@ public:
     const char *c_str() const { return elements; }  // 返回字符串首地址
     size_t size() const { return end - elements; } // 实际空间大小，包括一个结尾字符
     size_t length() const { return end - elements - 1; } // 字符串长度，不包括结尾字符
-
+    //14.26 添加[]下标运算符
+    char& operator[](size_t n) {return elements[n];}
+    const char& operator[](size_t n) const {return elements[n];}
 private:
     std::pair<char*, char*> alloc_n_copy(const char*, const char*); //拷贝到新地方
     void range_initializer(const char*, const char*); // 根据输入输出初始化
