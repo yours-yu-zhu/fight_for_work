@@ -19,8 +19,12 @@ public:
     Sales_data(istream &is);
     Sales_data& operator+=(const Sales_data&);
     string isbn() const {return bookNo;}
-    //12.22 
+    //14.22 
     Sales_data& operator=(const string&);
+
+    //14.45
+    explicit operator string() const {return bookNo;}
+    explicit operator double() const {return revenue;}
 private:
     string bookNo;
     unsigned units_sold = 0; //数量

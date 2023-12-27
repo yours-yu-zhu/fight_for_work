@@ -57,7 +57,15 @@ void ex_14_22(){
     std::cout << b1 << std::endl;
 }
 
+void ex_14_45(){
+    Sales_data b1("c++ primer", 10, 97.09);
+    string s = static_cast<string>(b1);
+    double d = static_cast<double>(b1);
+    cout << s << std::endl;
+    cout << d << std::endl;
+}
 int main() {
     // ex_14_20();
-    ex_14_22();
+    // ex_14_22();
+    ex_14_45();
 }
