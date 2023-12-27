@@ -200,6 +200,15 @@ StrBlobPtr& StrBlobPtr::operator-=(size_t n){
     return *this;
 }
 
+string& StrBlobPtr::operator*() const{
+    auto p = check(curr,"dereference past end");
+    return (*p)[curr];
+}
+
+string* StrBlobPtr::operator->() const{
+    return & this ->operator*();
+}
+
 void ex_14_27(){
     StrBlob b1;
     {
@@ -232,5 +241,5 @@ int main() {
     // ex_12_15();
     // ex_12_16();
     // ex_12_20();
-    ex_14_27();
+    // ex_14_27();
 }

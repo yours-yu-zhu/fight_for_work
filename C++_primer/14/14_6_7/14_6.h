@@ -89,6 +89,10 @@ public:
     StrBlobPtr& operator+=(size_t);
     StrBlobPtr& operator-=(size_t);
 
+    //14。30 添加下标运算符
+    string& operator*() const;
+    string* operator->() const;
+
 private:
     weak_ptr<vector<string>> wptr;
     size_t curr;
