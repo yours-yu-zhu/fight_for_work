@@ -82,7 +82,7 @@ private:
 
 void ex14_38(){
     vector<string> vs;
-    fstream fs("/home/ubuntu/fight_for_work/C++_primer/14/14_8/data.txt");
+    ifstream fs("/home/ubuntu/fight_for_work/C++_primer/14/14_8/data.txt");
     string line;
     string word;
     while(getline(fs, line)){
