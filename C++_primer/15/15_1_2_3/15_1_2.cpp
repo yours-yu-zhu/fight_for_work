@@ -39,11 +39,22 @@ void ex15_7(){
     print_total(log, limited, 3);
 }
 
+void ex15_11(){
+    Quote item("978-7-121-15535-2", 100);         // 基类对象
+    Limit_quote limited("978-7-121-15535-2", 100, 2, 0.2);    // 派生类对象
+    Bulk_quote bulk("978-7-121-15535-2", 100, 2, 0.2);
+    item.debug();
+    bulk.debug();
+    limited.debug();
+}
+
 
 
 int main() {
     // ex15_6();
-    ex15_7();
+    // ex15_7();
+    ex15_11();
+
     return 0;
 
 }

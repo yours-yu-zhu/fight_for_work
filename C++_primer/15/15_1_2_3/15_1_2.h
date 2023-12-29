@@ -13,6 +13,11 @@ public:
         return n * price;
     }
     ~Quote() = default;
+    //ex15.11
+    virtual void debug(){
+        cout << "Quote's data members:\n" 
+            << "\tbookNo: " << bookNo << "\n\tprice: " << price << endl;
+    }
 private:
     string bookNo;
 protected:
@@ -27,6 +32,12 @@ public:
         Quote(book, p), min_qty(n), discount(disc){}
     double net_price(size_t n) override;
     ~Bulk_quote() = default;
+    //ex15.11
+    void debug() override{
+        cout << "Bulk_quote's data members:\n" 
+            << "\tbookNo: " << isbn() << "\n\tprice: " << price 
+            << "\n\tmin_qty: " << min_qty << "\n\tdiscount: " << discount << endl;
+    }
 private:
     size_t min_qty = 0;
     double discount = 0.0;
@@ -39,6 +50,12 @@ public:
         Quote(book, p), max_qty(n), discount(disc){}
     double net_price(size_t n) override;
     ~Limit_quote() = default;
+    //ex15.11 
+    void debug() override{
+        cout << "Limit_quote's data members:\n" 
+            << "\tbookNo: " << isbn() << "\n\tprice: " << price 
+            << "\n\tmax_qty: " << max_qty << "\n\tdiscount: " << discount << endl;
+    }
 private:
     size_t max_qty = 0;
     double discount = 0.0;
