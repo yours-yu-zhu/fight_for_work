@@ -16,7 +16,7 @@ void runQueries(ifstream &infile){
 
 
 int main() {
-	ifstream ifs("/home/ubuntu/fight_for_work/C++_primer/12/ex12_20.txt");
+	ifstream ifs("/home/ubuntu/fight_for_work/C++_primer/15/15_9/data.txt");
 	runQueries(ifs);
 
 }

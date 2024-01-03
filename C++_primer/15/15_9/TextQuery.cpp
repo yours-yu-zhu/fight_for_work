@@ -1,5 +1,4 @@
-#include "12_3.h"
-
+#include "TextQuery.h"
 
 using namespace std;
 class QueryResult;
