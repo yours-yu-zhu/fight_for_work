@@ -1,3 +1,6 @@
+#ifndef _15_4_H_
+#define _15_4_H_
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -13,6 +16,9 @@ public:
         return n * price;
     }
     ~Quote() = default;
+    //15.30版本
+    virtual Quote* clone() const &{return new Quote(*this);}
+    virtual Quote* clone() &&{return new Quote(std::move(*this));}
 private:
     string bookNo;
 protected:
@@ -39,6 +45,8 @@ public:
     Bulk_quote(const string &book, double p, size_t qty, double disc):
         Disc_quote(book, p, qty, disc){}
     double net_price(size_t n) override;
+    Bulk_quote* clone()const& override{return new Bulk_quote(*this);}
+    Bulk_quote* clone()&& override{return new Bulk_quote(std::move(*this));}
 
 };
 
@@ -49,4 +57,6 @@ public:
         Disc_quote(book, p, qty, disc){}
     double net_price(size_t n) override;
 };
-double print_total(ostream &os, const Quote &item, size_t n);
+double print_total(ostream &os, Quote &item, size_t n);
+
+#endif

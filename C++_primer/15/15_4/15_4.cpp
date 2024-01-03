@@ -46,9 +46,9 @@ void ex15_17(){
     // Disc_quote disc_quote;
 }
 
-int main() {
-    // ex15_15();
-    // ex15_16();
-    return 0;
+// int main() {
+//     // ex15_15();
+//     // ex15_16();
+//     return 0;
 
-}
+// }
