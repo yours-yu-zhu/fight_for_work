@@ -1,4 +1,5 @@
 #include "12_3.h"
+#include "/home/ubuntu/fight_for_work/C++_primer/16/16_1/DebugDelete.h"
 
 
 using namespace std;
@@ -6,7 +7,8 @@ class QueryResult;
 class TextQuery;
 
 
-TextQuery::TextQuery(ifstream &ifs):file(new vector<string>){
+TextQuery::TextQuery(ifstream &ifs):
+    file(new vector<string>, DebugDelete("shared_ptr")){
     string text;
     while(getline(ifs, text)){
         file->push_back(text);

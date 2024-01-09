@@ -1,3 +1,5 @@
+#ifndef VEC_H
+#define VEC_H
 #include <iostream>
 #include <string>
 #include <vector>
@@ -211,3 +213,5 @@ Vec<string> getVec(istream &is) {
         svec.push_back(s);
     return svec;
 }
+
+#endif

@@ -1,3 +1,5 @@
+#ifndef BLOB_H
+#define BLOB_H
 #include <iostream>
 #include <vector>
 #include <string>
@@ -22,6 +24,9 @@ public:
 
     Blob(): data(make_shared <vector<T>> ()){}
     Blob(initializer_list<T> il): data(make_shared<vector<T>>(il)){}
+    //接受迭代器的构造函数
+    template <typename It>
+    Blob(It b, It e): data(make_shared<vector<T>>(b,e)){}
     size_type size() const {return data->size();}
     bool empty() const{return data->empty();}
     void push_back(const T &s){data->push_back(s);}
@@ -180,4 +185,4 @@ T* BlobPtr<T>::operator->() const{
     return & this ->operator*();
 }
 
-
+#endif
