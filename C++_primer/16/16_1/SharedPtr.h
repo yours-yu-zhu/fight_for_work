@@ -89,9 +89,9 @@ SharedPtr<T>::~SharedPtr(){
     }
 }
 
-template <typename T>
-SharedPtr<T> make_shared(){
-    SharedPtr<T> s(new T);
+template <typename T, typename ... Args>
+SharedPtr<T> make_shared(Args&& ... args){
+    SharedPtr<T> s(new T(std::forward<Args>(args)...));
     return s;
 }
 

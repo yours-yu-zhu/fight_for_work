@@ -44,6 +44,12 @@ public:
     void reserve(size_t n); //分配至少能容纳n个元素的空间
     void resize(size_t n); //将元素数量调整为n个
     void resize(size_t n, const Type& s); //将元素数量调整为n个，多余的用s初始化
+    //ex16.58 添加emplace_back函数
+    template <typename... Args>
+    void emplace_back(Args&&... args){
+        chk_n_alloc();
+        alloc.construct(first_free++, std::forward<Args>(args)...);
+    } 
 private:
     void free(); //销毁并释放内存
     void reallocate(); //获得更多内存并拷贝已有元素
