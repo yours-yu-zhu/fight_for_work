@@ -25,10 +25,10 @@ public:
     }
 };
 
-//int main() {
-//    vector<int> nums = {-1,0,3,5,9,12};
-//    int target = 2;
-//    Solution a ;
-//    cout<<a.search(nums,target);
-//    return 0;
-//}
+int main() {
+   vector<int> nums = {-1,0,3,5,9,12};
+   int target = 2;
+   Solution a ;
+   cout<<a.search(nums,target);
+   return 0;
+}
