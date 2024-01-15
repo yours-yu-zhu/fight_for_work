@@ -106,3 +106,38 @@
   - 慢指针：指向更新 新数组下标的位置
 
 双指针十分巧妙，主要掌握方法。
+## 977.****有序数组的平方****
+
+```cpp
+//暴力解法，先平方，再直接调用快速排序
+    vector<int> sortedSquares_1(vector<int>& nums) {
+        for(auto i = nums.begin(); i != nums.end(); ++i){
+            *i *= *i;
+        }
+        sort(nums.begin(), nums.end());
+        return nums;
+    }
+//双指针法，从两端开始遍历，比较两端的平方值，将较大的值放入结果数组的末尾
+    vector<int> sortedSquares_2(vector<int>& nums) {
+        size_t k = nums.size() - 1;
+        vector<int> result(nums.size(), 0);
+        for(size_t i = 0, j = k; i <= j;){
+            if(nums[i] * nums[i] < nums[j] * nums[j]){
+                result[k--] = nums[j] * nums[j];
+                --j;
+            }else{
+                result[k--] = nums[i] * nums[i];
+                ++i;
+            }
+        }
+        return result;
+    }
+```
+
+这道题整体来说还是简单的
+
+- 暴力解法直接就每个元素变为平方，再调用快速排序。O(nlogn)的时间复杂度
+- 双指针方法，则是抓住**最大的元素一定是在数组的两端这个特点，**除此之外就没有难点了。
+
+自己手撸代码时候出现了if(nums[i] * nums[i] < nums[j] * nums[j])这里刚开始写的没有平方来写
+ 
