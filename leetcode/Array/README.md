@@ -269,3 +269,63 @@ int searchInsert(vector<int>& nums, int target) {
 ```
 
 和704二分查找基本没有任何区别，就当复习二分查找了～
+# 34.****在排序数组中查找元素的第一个和最后一个位置****
+
+```cpp
+class Solution {
+public:
+    //寻找左右边界
+    vector<int> searchRange(vector<int>& nums, int target) {
+       int leftbound = binarySearch(nums, target, true);
+       int rightbound = binarySearch(nums, target, false); 
+       return {leftbound, rightbound};
+
+    }
+    //找到一个target后，向左右两边扩展
+    vector<int> searchRang_1(vector<int>& nums, int target) {
+        int middle = binarySearch(nums, target, true);
+        int leftbound = middle, rightbound = middle;
+        if(middle == -1){
+            return {-1, -1};
+        }
+        while(leftbound >= 0 && nums[leftbound] == target){
+            leftbound--;
+        }
+        while(rightbound < nums.size() && nums[rightbound] == target){
+            rightbound++;
+        }
+        return {leftbound + 1, rightbound - 1};
+    }
+private:
+//二分法寻找左右边界，flag为true时寻找左边界，flag为false时寻找右边界
+    int binarySearch(vector<int>& nums, int target, bool flag){
+        int left = 0;
+        int right = nums.size();
+        int result = -1;
+        while(left < right){
+            int middle = left + (right - left) / 2;
+            if(nums[middle] > target){
+                right = middle;
+            }else if(nums[middle] < target){
+                left = middle + 1;
+            }else if(nums[middle] == target){
+                if (flag == true){
+                    right = middle;
+                    result = middle;
+                }else if(flag == false){
+                    left = middle + 1;
+                    result = middle;
+                }
+            }
+        }
+        return result;
+    }
+};
+```
+
+这道题是二分法的扩展。要寻找所有的符合target的区间，找到左右边界。就有两种思路了。
+
+- 第一种，我定义子函数，**子函数作用为寻找左右边界，flag为true时寻找左边界，flag为false时寻找右边界。**实现过程中就是在二分法过程中，遇到nums[middle] == target，要根据时找左边界还是右边界，把middle所在位置排除在下一次二分法的区间之外，直到找到边界。再主函数调用两次即可。
+- 第二种，只调用一次普通二分法。找到一个taget的位置。然后依据这个位置向左右两边扩展，直到找到边界。注意边界可能越界，要加入判断条件。
+
+自我认为第二种比第一种稍快一点。
