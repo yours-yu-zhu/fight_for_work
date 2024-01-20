@@ -325,7 +325,60 @@ private:
 
 这道题是二分法的扩展。要寻找所有的符合target的区间，找到左右边界。就有两种思路了。
 
-- 第一种，我定义子函数，**子函数作用为寻找左右边界，flag为true时寻找左边界，flag为false时寻找右边界。**实现过程中就是在二分法过程中，遇到nums[middle] == target，要根据时找左边界还是右边界，把middle所在位置排除在下一次二分法的区间之外，直到找到边界。再主函数调用两次即可。
+- 第一种，我定义子函数，**子函数作用为寻找左右边界，flag为true时寻找左边界，flag为false时寻找右边界**实现过程中就是在二分法过程中，遇到nums[middle] == target，要根据时找左边界还是右边界，把middle所在位置排除在下一次二分法的区间之外，直到找到边界。再主函数调用两次即可。
 - 第二种，只调用一次普通二分法。找到一个taget的位置。然后依据这个位置向左右两边扩展，直到找到边界。注意边界可能越界，要加入判断条件。
 
 自我认为第二种比第一种稍快一点。
+
+# 69.x 的平方根
+
+```cpp
+int mySqrt_1(int x) {
+        double left = 0, right = static_cast<double>(x) + 1;       
+        int result = 0;
+        if(x == 0){
+            return 0;
+        }
+
+        while(left < right){
+            int middle = left + (right - left) / 2;
+            if(middle > x / middle){
+                right = middle;
+            }else if(middle < x / middle){
+                left = middle + 1;
+                result = middle;
+            }else{
+                return middle;
+            }
+        }
+        return result;
+    }
+    int mySqrt_2(int x) {
+        double left = 0, right = static_cast<double>(x) + 1;       
+        int result = 0;
+        while(left < right){
+            int middle = left + (right - left) / 2;
+            if(static_cast<double>(middle) * static_cast<double>(middle) > x){
+                right = middle;
+            }else if(static_cast<double>(middle) * static_cast<double>(middle) < x){
+                left = middle + 1;
+                result = middle;
+            }else if(static_cast<double>(middle) * static_cast<double>(middle) == x){
+                return middle;
+            }
+        }
+        return result;
+    }
+```
+
+这道题思路其实简单，二分法查找，然后比较mid*mid和给定的大小之间的差距，必须是小于等于才行。
+
+问题就在，mid*mid可能超过了int的2的32次方的最大限制，以及x + 1 也可能超过限制（二分法的左闭右开）。
+
+所以要把left 和 right定义为double。
+
+把mid * mid强制转换为double。
+
+还有一种思路就是把mid * mid 与x的判断转化为mid与 x / mid之间的判断。就省去一个的强制类型转换。但是除法耗时很长，以及要排除mid为0的情况~
+
+这道题还是用左闭右闭的二分法写法要好一点感觉~
