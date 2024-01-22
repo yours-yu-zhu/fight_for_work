@@ -385,3 +385,44 @@ int mySqrt_1(int x) {
 # 367.**有效的完全平方数**
 
 这道题思路和69基本一样，二分法easy～
+
+# 26. **删除有序数组中的重复项**
+
+```cpp
+int removeDuplicates_1(vector<int>& nums) {
+        if(nums.size() == 1){
+            return 1;
+        }
+        auto fast = nums.begin() + 1;
+        auto slow = fast;
+        int curobj = *(nums.begin());
+        for(;fast != nums.end(); ++fast){
+            if(*fast != curobj){
+                *slow = *fast;
+                curobj = *fast;
+                ++slow;
+            }
+        }
+        return slow - nums.begin();
+    }
+    int removeDuplicates_2(vector<int>& nums) {
+        if(nums.size() == 0){
+            return 0;
+        }
+        int fast = 1, slow = 1;
+        while(fast < n){
+            if(nums[fast] != nums[fast - 1]){
+                nums[slow] = nums[fast];
+                ++slow;
+            }
+            ++fast;
+        }
+        return slow;
+    }
+```
+
+27题目的基本一样的思路，使用双指针可以让时间复杂度降低到O(n)。
+
+我写了迭代器版本和下标访问的版本。
+
+感觉迭代器的空间占用更多。
