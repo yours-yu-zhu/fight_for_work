@@ -50,11 +50,12 @@ void Foo::operator delete[](void* pdead, size_t size){
 
 int main(){
     cout << sizeof(int) << endl;
+    cout << sizeof(char) << endl;
     cout << sizeof(long) << endl;
     cout << sizeof(string) << endl;
     cout << sizeof(Foo) << endl;
-    Foo *pf = new Foo(7);
-    delete pf;
-    // Foo* parrat = new Foo[3];
-    // delete[] parrat;
+    // Foo *pf = new Foo(7);
+    // delete pf;
+    Foo* parrat = new Foo[3];
+    delete[] parrat;
 }
