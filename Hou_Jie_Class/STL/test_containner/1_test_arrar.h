@@ -18,7 +18,7 @@ void test_array(){
     for(long i = 0; i < ASIZE; ++i){
         c[i] = rand();
     }
-    cout << "milli-seconds: " << (clock() - timeStart) << endl;
+    cout << "milli-seconds: " << double(clock() - timeStart) / CLOCKS_PER_SEC * 1000 << endl;
     cout << "array.size()= " << c.size() << endl;
     cout << "array.front()= " << c.front() << endl;
     cout << "array.back()= " << c.back() << endl;
@@ -29,7 +29,7 @@ void test_array(){
     ::qsort(c.data(), ASIZE, sizeof(long), compareLongs);
 
     long* pItem = (long*)::bsearch(&target, (c.data()), ASIZE, sizeof(long), compareLongs);
-    cout << "qsort()+bsearch(), milli-seconds: " << (clock() - timeStart) << endl;
+    cout << "qsort()+bsearch(), milli-seconds: " << double(clock() - timeStart) / CLOCKS_PER_SEC * 1000 << endl;
     if(pItem != nullptr){
         cout << "found, " << *pItem << endl;
     }else{

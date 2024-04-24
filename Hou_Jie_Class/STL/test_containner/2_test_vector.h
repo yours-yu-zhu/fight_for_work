@@ -13,7 +13,7 @@ void test_vector(long& value){
 
     vector<string> c;
     char buf[10];
-    clock_t timestart = clock();
+    clock_t timeStart = clock();
     srand(time(NULL));
 
     for(long i = 0; i <value; ++i){
@@ -27,7 +27,7 @@ void test_vector(long& value){
         }
     }
 
-    cout << "milli-seconds: " << (clock() - timestart) << endl;
+    cout << "milli-seconds: " << double(clock() - timeStart) / CLOCKS_PER_SEC * 1000 << endl;
     cout << "vector.max_size() = " << c.max_size() << endl;
     cout << "vector.size() = " << c.size() << endl;
     cout << "vector.capacity() = " << c.capacity() << endl;
@@ -37,9 +37,9 @@ void test_vector(long& value){
 
     string target = get_a_target_string();
     {
-        timestart = clock();
+        timeStart = clock();
         auto pItem = find(c.begin(), c.end(), target);
-        cout << "find(), milli-seconds: " << (clock() - timestart) << endl; 
+        cout << "find(), milli-seconds: " << double(clock() - timeStart) / CLOCKS_PER_SEC * 1000 << endl; 
         if(pItem != c.end()){
             cout << "found, " << *pItem << endl;
         }else{
@@ -48,10 +48,10 @@ void test_vector(long& value){
     } 
 
     {
-        timestart = clock();
+        timeStart = clock();
         sort(c.begin(), c.end());
         string* pItem = (string*)::bsearch(&target, (c.data()), c.size(), sizeof(string), comepareStrings);
-        cout << "sort()+bsearch(), milli-seconds: " << (clock() - timestart) << endl;
+        cout << "sort()+bsearch(), milli-seconds: " << double(clock() - timeStart) / CLOCKS_PER_SEC * 1000 << endl;
         if(pItem != nullptr){
             cout << "found, " << *pItem << endl;
         }else{
