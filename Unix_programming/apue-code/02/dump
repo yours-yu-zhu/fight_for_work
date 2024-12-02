@@ -1,0 +1,249 @@
+   173      1 ktrace   EMUL  "netbsd"
+   173      1 ktrace   CALL  execve(0x7f7fff6c5140,0x7f7fff6c5648,0x7f7fff6c5658)
+   173      1 ktrace   NAMI  "/home/jschauma/bin/ls"
+   173      1 ktrace   RET   execve -1 errno 2 No such file or directory
+   173      1 ktrace   CALL  execve(0x7f7fff6c5140,0x7f7fff6c5648,0x7f7fff6c5658)
+   173      1 ktrace   NAMI  "/bin/ls"
+   173      1 ktrace   NAMI  "/libexec/ld.elf_so"
+   173      1 ls       EMUL  "netbsd"
+   173      1 ls       RET   execve JUSTRETURN
+   173      1 ls       CALL  mmap(0,0x8000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597951066112/0x7981b26a8000
+   173      1 ls       CALL  open(0x7f7e4ae0d39f,0,0x7f7e4b012768)
+   173      1 ls       NAMI  "/etc/ld.so.conf"
+   173      1 ls       RET   open -1 errno 2 No such file or directory
+   173      1 ls       CALL  open(0x7f7fff4c7e68,0,1)
+   173      1 ls       NAMI  "/lib/libutil.so.7"
+   173      1 ls       RET   open 3
+   173      1 ls       CALL  __fstat50(3,0x7f7fff4c7d68)
+   173      1 ls       RET   __fstat50 0
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ,0x1<SHARED,FILE,ALIGN=NONE>,3,0,0)
+   173      1 ls       RET   mmap 133597951062016/0x7981b26a7000
+   173      1 ls       CALL  munmap(0x7981b26a7000,0x1000)
+   173      1 ls       RET   munmap 0
+   173      1 ls       CALL  mmap(0,0x21d000,PROT_READ|PROT_EXEC,0x15000002<PRIVATE,FILE,ALIGN=2MB>,3,0,0)
+   173      1 ls       RET   mmap 133597948280832/0x7981b2400000
+   173      1 ls       CALL  mmap(0x7981b2617000,0x4000,PROT_READ|PROT_WRITE,0x12<PRIVATE,FIXED,FILE,ALIGN=NONE>,3,0,0x17000)
+   173      1 ls       RET   mmap 133597950472192/0x7981b2617000
+   173      1 ls       CALL  mmap(0x7981b261b000,0x2000,PROT_READ|PROT_WRITE,0x1012<PRIVATE,FIXED,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950488576/0x7981b261b000
+   173      1 ls       CALL  mprotect(0x7981b2417000,0x200000,PROT_NONE)
+   173      1 ls       RET   mprotect 0
+   173      1 ls       CALL  close(3)
+   173      1 ls       RET   close 0
+   173      1 ls       CALL  open(0x7f7fff4c7e68,0,7)
+   173      1 ls       NAMI  "/lib/libc.so.12"
+   173      1 ls       RET   open 3
+   173      1 ls       CALL  __fstat50(3,0x7f7fff4c7d68)
+   173      1 ls       RET   __fstat50 0
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ,0x1<SHARED,FILE,ALIGN=NONE>,3,0,0)
+   173      1 ls       RET   mmap 133597951062016/0x7981b26a7000
+   173      1 ls       CALL  munmap(0x7981b26a7000,0x1000)
+   173      1 ls       RET   munmap 0
+   173      1 ls       CALL  mmap(0,0x5e2000,PROT_READ|PROT_EXEC,0x15000002<PRIVATE,FILE,ALIGN=2MB>,3,0,0)
+   173      1 ls       RET   mmap 133597941989376/0x7981b1e00000
+   173      1 ls       CALL  mmap(0x7981b21ae000,0x12000,PROT_READ|PROT_WRITE,0x12<PRIVATE,FIXED,FILE,ALIGN=NONE>,3,0,0x1ae000)
+   173      1 ls       RET   mmap 133597945847808/0x7981b21ae000
+   173      1 ls       CALL  mmap(0x7981b21c0000,0x222000,PROT_READ|PROT_WRITE,0x1012<PRIVATE,FIXED,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597945921536/0x7981b21c0000
+   173      1 ls       CALL  mprotect(0x7981b1faf000,0x1ff000,PROT_NONE)
+   173      1 ls       RET   mprotect 0
+   173      1 ls       CALL  close(3)
+   173      1 ls       RET   close 0
+   173      1 ls       CALL  mprotect(0x7981b2617000,0x2000,PROT_READ)
+   173      1 ls       RET   mprotect 0
+   173      1 ls       CALL  mprotect(0x7981b21ae000,0xc000,PROT_READ)
+   173      1 ls       RET   mprotect 0
+   173      1 ls       CALL  mprotect(0x45605000,0x1000,PROT_READ)
+   173      1 ls       RET   mprotect 0
+   173      1 ls       CALL  _lwp_setprivate(0x7981b26ae850)
+   173      1 ls       RET   _lwp_setprivate 0
+   173      1 ls       CALL  _lwp_self
+   173      1 ls       RET   _lwp_self 1
+   173      1 ls       CALL  __sigprocmask14(1,0x7f7fff4c8560,0x7f7fff4c85e0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  __sigprocmask14(3,0x7f7fff4c85e0,0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  readlink(0x7981b1f75420,0x7f7fff4c8040,0x400)
+   173      1 ls       NAMI  "/etc/malloc.conf"
+   173      1 ls       RET   readlink -1 errno 2 No such file or directory
+   173      1 ls       CALL  issetugid
+   173      1 ls       RET   issetugid 0
+   173      1 ls       CALL  __sysctl(0x7f7fff4c83d8,2,0x7981b21d16a0,0x7f7fff4c83d0,0,0)
+   173      1 ls       RET   __sysctl 0
+   173      1 ls       CALL  mmap(0,0x1000,PROT_NONE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597951062016/0x7981b26a7000
+   173      1 ls       CALL  madvise(0x7981b26a7000,0x1000,6)
+   173      1 ls       RET   madvise 0
+   173      1 ls       CALL  munmap(0x7981b26a7000,0x1000)
+   173      1 ls       RET   munmap 0
+   173      1 ls       CALL  mmap(0,0x200000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597939892224/0x7981b1c00000
+   173      1 ls       CALL  __clock_gettime50(3,0x7f7fff4c83d0)
+   173      1 ls       RET   __clock_gettime50 0
+   173      1 ls       CALL  __clock_gettime50(3,0x7f7fff4c83d0)
+   173      1 ls       RET   __clock_gettime50 0
+   173      1 ls       CALL  __clock_gettime50(3,0x7f7fff4c83f0)
+   173      1 ls       RET   __clock_gettime50 0
+   173      1 ls       CALL  mmap(0,0x8000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597951033344/0x7981b26a0000
+   173      1 ls       CALL  mmap(0,0x400000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597935697920/0x7981b1800000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597951029248/0x7981b269f000
+   173      1 ls       CALL  __sysctl(0x7f7fff4c8470,2,0x7f7fff4c8450,0x7f7fff4c8448,0,0)
+   173      1 ls       RET   __sysctl 0
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597951025152/0x7981b269e000
+   173      1 ls       CALL  __sysctl(0x7981b1f7b720,2,0x7981b21d0680,0x7f7fff4c84a8,0,0)
+   173      1 ls       RET   __sysctl 0
+   173      1 ls       CALL  _lwp_self
+   173      1 ls       RET   _lwp_self 1
+   173      1 ls       CALL  __sigprocmask14(1,0x7f7fff4c84b0,0x7f7fff4c85e0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  __sigprocmask14(3,0x7f7fff4c85e0,0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  _lwp_self
+   173      1 ls       RET   _lwp_self 1
+   173      1 ls       CALL  __sigprocmask14(1,0x7f7fff4c84b0,0x7f7fff4c85e0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  __sigprocmask14(3,0x7f7fff4c85e0,0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  issetugid
+   173      1 ls       RET   issetugid 0
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597951021056/0x7981b269d000
+   173      1 ls       CALL  ioctl(1,TIOCGETA,0x7f7fff4c8580)
+   173      1 ls       GIO   fd 1 read 44 bytes
+       "\^B+\0\0\a\0\0\0\0K\0\0\M-K\^E\0 \^D\M^?\M^?\^?\^W\^U\^R\M^?\^C\^\\^Z\
+	\^Y\^Q\^S\^V\^O\^A\0\^T\M^?\M^@%\0\0\M^@%\0\0"
+   173      1 ls       RET   ioctl 0
+   173      1 ls       CALL  ioctl(1,TIOCGWINSZ,0x7f7fff4c85d8)
+   173      1 ls       GIO   fd 1 read 8 bytes
+       "\^X\0P\0p\^C\^P\^B"
+   173      1 ls       RET   ioctl 0
+   173      1 ls       CALL  getuid
+   173      1 ls       RET   getuid 1000/0x3e8, 1000/0x3e8
+   173      1 ls       CALL  mmap(0,0x5000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597951000576/0x7981b2698000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950996480/0x7981b2697000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950992384/0x7981b2696000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950988288/0x7981b2695000
+   173      1 ls       CALL  __stat50(0x7981b269d0f0,0x7f7fff4c8470)
+   173      1 ls       NAMI  "."
+   173      1 ls       RET   __stat50 0
+   173      1 ls       CALL  open(0x7981b1f7877e,0x400000,0)
+   173      1 ls       NAMI  "."
+   173      1 ls       RET   open 3
+   173      1 ls       CALL  fchdir(3)
+   173      1 ls       RET   fchdir 0
+   173      1 ls       CALL  open(0x7981b1f7877e,0x400000,0)
+   173      1 ls       NAMI  "."
+   173      1 ls       RET   open 4
+   173      1 ls       CALL  open(0x7981b2697000,0x600004,0)
+   173      1 ls       NAMI  "."
+   173      1 ls       RET   open 5
+   173      1 ls       CALL  fstatvfs1(5,0x7f7fff4c7b80,2)
+   173      1 ls       RET   fstatvfs1 0
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950984192/0x7981b2694000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950980096/0x7981b2693000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950976000/0x7981b2692000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950971904/0x7981b2691000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950967808/0x7981b2690000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950963712/0x7981b268f000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950959616/0x7981b268e000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950955520/0x7981b268d000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950951424/0x7981b268c000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950947328/0x7981b268b000
+   173      1 ls       CALL  mmap(0,0x1000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950943232/0x7981b268a000
+   173      1 ls       CALL  lseek(5,0,0,1)
+   173      1 ls       RET   lseek 0
+   173      1 ls       CALL  __getdents30(5,0x7981b2694000,0x1000)
+   173      1 ls       GIO   fd 5 read 408 bytes
+       "\^O0\^V\0\0\0\0\0\^P\0\^A\0\^D.\0\0\v0\^V\0\0\0\0\0\^P\0\^B\0\^D..\0\
+	\M^Q0\^V\0\0\0\0\0\^X\0\^E\0\bfds.c\0\0\0\0\0\0\M^R0\^V\0\0\0\0\0\^X\0\
+	\^F\0\bhole.c\0\0\0\0\0\M^S0\^V\0\0\0\0\0\^X\0\b\0\bMakefile\0\0\0\M^T\
+	0\^V\0\0\0\0\0\^X\0\n\0\bsync-cat.c\0\M^U0\^V\0\0\0\0\0\^X\0\^F\0\brwe\
+	x.c\0\0\0\0\0\M^V0\^V\0\0\0\0\0\^X\0\a\0\bredir.c\0\0\0\0\M^W0\^V\0\0\
+	\0\0\0\^X\0\a\0\blseek.c\0\0\0\0\M^X0\^V\0\0\0\0\0 \0\f\0\bsimple-cat.\
+	c\0\0\0\0\0\0\0\M^Y0\^V\0\0\0\0\0\^X\0\^F\0\bargv.c\0\0\0\0\0\M^Z0\^V\
+	\0\0\0\0\0\^X\0\b\0\bopenex.c\0\0\0\M^[0\^V\0\0\0\0\0\^X\0	\0\bop\
+	enfds.c\0\0\M^\0\^V\0\0\0\0\0\^X\0	\0\bopenmax.c\0\0\M-C0\^V\0\0\
+	\0\0\0\^X\0\^E\0\ba.out\0\0\0\0\0\0\M-f0\^V\0\0\0\0\0 \0\^N\0\blseek-t\
+	o-end.c\0\0\0\0\0\M-b0\^V\0\0\0\0\0\^X\0\n\0\bktrace.out\0"
+   173      1 ls       RET   __getdents30 408/0x198
+   173      1 ls       CALL  mmap(0,0x5000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950922752/0x7981b2685000
+   173      1 ls       CALL  lseek(5,0,0,1)
+   173      1 ls       RET   lseek 512/0x200
+   173      1 ls       CALL  __getdents30(5,0x7981b2694000,0x1000)
+   173      1 ls       GIO   fd 5 read 0 bytes
+       ""
+   173      1 ls       RET   __getdents30 0
+   173      1 ls       CALL  close(5)
+   173      1 ls       RET   close 0
+   173      1 ls       CALL  mmap(0,0x7000,PROT_READ|PROT_WRITE,0x1002<PRIVATE,ANONYMOUS,ALIGN=NONE>,0xffffffff,0,0)
+   173      1 ls       RET   mmap 133597950894080/0x7981b267e000
+   173      1 ls       CALL  fchdir(4)
+   173      1 ls       RET   fchdir 0
+   173      1 ls       CALL  close(4)
+   173      1 ls       RET   close 0
+   173      1 ls       CALL  __fstat50(1,0x7f7fff4c7fb0)
+   173      1 ls       RET   __fstat50 0
+   173      1 ls       CALL  ioctl(1,TIOCGETA,0x7f7fff4c8020)
+   173      1 ls       GIO   fd 1 read 44 bytes
+       "\^B+\0\0\a\0\0\0\0K\0\0\M-K\^E\0 \^D\M^?\M^?\^?\^W\^U\^R\M^?\^C\^\\^Z\
+	\^Y\^Q\^S\^V\^O\^A\0\^T\M^?\M^@%\0\0\M^@%\0\0"
+   173      1 ls       RET   ioctl 0
+   173      1 ls       CALL  write(1,0x7981b2694000,0x47)
+   173      1 ls       GIO   fd 1 wrote 71 bytes
+       "Makefile        fds.c           lseek-to-end.c  openfds.c       rwex.c\
+	\n"
+   173      1 ls       RET   write 71/0x47
+   173      1 ls       CALL  write(1,0x7981b2694000,0x4d)
+   173      1 ls       GIO   fd 1 wrote 77 bytes
+       "a.out           hole.c          lseek.c         openmax.c       simple\
+	-cat.c\n"
+   173      1 ls       RET   write 77/0x4d
+   173      1 ls       CALL  write(1,0x7981b2694000,0x4b)
+   173      1 ls       GIO   fd 1 wrote 75 bytes
+       "argv.c          ktrace.out      openex.c        redir.c         sync-c\
+	at.c\n"
+   173      1 ls       RET   write 75/0x4b
+   173      1 ls       CALL  fchdir(3)
+   173      1 ls       RET   fchdir 0
+   173      1 ls       CALL  close(3)
+   173      1 ls       RET   close 0
+   173      1 ls       CALL  _lwp_self
+   173      1 ls       RET   _lwp_self 1
+   173      1 ls       CALL  __sigprocmask14(1,0x7f7fff4c8570,0x7f7fff4c85b0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  __sigprocmask14(3,0x7f7fff4c85b0,0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  _lwp_self
+   173      1 ls       RET   _lwp_self 1
+   173      1 ls       CALL  __sigprocmask14(1,0x7f7fff4c84c0,0x7f7fff4c85b0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  __sigprocmask14(3,0x7f7fff4c85b0,0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  _lwp_self
+   173      1 ls       RET   _lwp_self 1
+   173      1 ls       CALL  __sigprocmask14(1,0x7f7fff4c84c0,0x7f7fff4c85b0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  __sigprocmask14(3,0x7f7fff4c85b0,0)
+   173      1 ls       RET   __sigprocmask14 0
+   173      1 ls       CALL  exit(0)
