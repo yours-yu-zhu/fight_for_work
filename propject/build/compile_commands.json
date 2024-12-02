@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/ubuntu/fight_for_work/propject/build",
-  "command": "/usr/bin/aarch64-linux-gnu-g++   -g -o CMakeFiles/first.dir/main.cpp.o -c /home/ubuntu/fight_for_work/propject/main.cpp",
-  "file": "/home/ubuntu/fight_for_work/propject/main.cpp",
-  "output": "CMakeFiles/first.dir/main.cpp.o"
-}
-]
